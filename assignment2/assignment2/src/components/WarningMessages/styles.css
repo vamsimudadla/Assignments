@@ -1,0 +1,55 @@
+
+.green-block{
+    width :700px;
+    height: 50px;
+    background-color: rgba(51, 255, 180, 0.247);
+    color: #42FF33;
+    text-align: center;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+
+}
+
+.blue-block{
+    width :700px;
+    height: 50px;
+    background-color: #33caff;
+    color: #333cff;
+    text-align: center;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+
+}
+
+
+.yellow-block{
+    width :700px;
+    height: 50px;
+    background-color: #fff033;
+    color: #ffb233;
+    text-align: center;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+
+}
+
+
+
+.red-block{
+    height: 50px;
+    width :700px;
+    background-color:  #ff5e33;
+    color: #ff3333;
+    text-align: center;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+
+} 
+
+.warn-text{
+    margin-left :30px;
+}
