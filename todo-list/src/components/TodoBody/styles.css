@@ -1,0 +1,13 @@
+.cross-image {
+  display: none;
+}
+
+.todo-item:hover .cross-image {
+  display: inline;
+  width: 20px;
+  height: 20px;
+}
+
+.strike-text {
+  text-decoration: line-through;
+}
