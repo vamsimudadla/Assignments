@@ -1,35 +1,39 @@
 import React, { Component } from "react";
 
 class FilterButtons extends Component {
-  displaAll = () => {
-    this.props.displaAll();
+  displayAll = e => {
+    this.props.displayAll(e.target.value);
   };
 
-  activeTodos = () => {
-    this.props.activeTodos();
+  activeTodos = e => {
+    this.props.activeTodos(e.target.value);
   };
 
-  completedTodos = () => {
-    this.props.completedTodos();
+  completedTodos = e => {
+    this.props.completedTodos(e.target.value);
   };
 
-  deleteCompleted = () => {
-    this.props.deleteCompleted();
+  deleteCompleted = e => {
+    this.props.deleteCompleted(e.target.value);
   };
 
   render() {
     return (
       <div>
-        <button type="button" onClick={this.displaAll}>
+        <button type="button" value="All" onClick={this.displayAll}>
           All
         </button>
-        <button type="button" onClick={this.activeTodos}>
+        <button type="button" value="Active" onClick={this.activeTodos}>
           Active
         </button>
-        <button type="button" onClick={this.completedTodos}>
+        <button type="button" value="completed" onClick={this.completedTodos}>
           completed
         </button>
-        <button type="button" onClick={this.deleteCompleted}>
+        <button
+          type="button"
+          value="clear completed"
+          onClick={this.deleteCompleted}
+        >
           clear completed
         </button>
       </div>
