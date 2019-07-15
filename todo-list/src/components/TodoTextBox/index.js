@@ -4,7 +4,7 @@ class TodoTextBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todoText: ""
+      todoText: props.todoText
     };
   }
 
@@ -16,10 +16,12 @@ class TodoTextBox extends Component {
 
   saveTodo = event => {
     if (event.key === "Enter") {
-      this.props.onSaveTodo(this.state.todoText);
-      this.setState({
-        todoText: ""
-      });
+      if (this.state.todoText != "") {
+        this.props.onSaveTodo(this.state.todoText);
+        this.setState({
+          todoText: ""
+        });
+      }
     }
   };
 
