@@ -20,6 +20,7 @@ class FilterButtons extends Component {
   render() {
     return (
       <div>
+        <span>{this.props.remaining_items} items left</span>
         <button type="button" value="All" onClick={this.displayAll}>
           All
         </button>
@@ -29,13 +30,17 @@ class FilterButtons extends Component {
         <button type="button" value="completed" onClick={this.completedTodos}>
           completed
         </button>
-        <button
-          type="button"
-          value="clear completed"
-          onClick={this.deleteCompleted}
-        >
-          clear completed
-        </button>
+        {this.props.clear_button ? (
+          <button
+            type="button"
+            value="clear completed"
+            onClick={this.deleteCompleted}
+          >
+            clear completed
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     );
   }

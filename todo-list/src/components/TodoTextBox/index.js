@@ -15,8 +15,9 @@ class TodoTextBox extends Component {
   };
 
   saveTodo = event => {
+    let text = this.state.todoText.trim();
     if (event.key === "Enter") {
-      if (this.state.todoText != "") {
+      if (this.state.todoText != "" && text.length > 0) {
         this.props.onSaveTodo(this.state.todoText);
         this.setState({
           todoText: ""

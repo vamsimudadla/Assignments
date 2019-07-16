@@ -8,6 +8,9 @@ class TodoItem extends Component {
 
   setTodoCompleted = e => {
     this.props.onChecked(e.target.value);
+    this.setState({
+      check: true
+    });
   };
 
   onUpdateTodo = (todoText, id) => {
@@ -26,6 +29,7 @@ class TodoItem extends Component {
             type="checkbox"
             value={this.props.value}
             onChange={this.setTodoCompleted}
+            checked={this.props.check}
           />
           <EditableTodo
             completed={this.props.completed}

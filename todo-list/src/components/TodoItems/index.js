@@ -36,8 +36,8 @@ class TodoItems extends Component {
     });
   };
 
-  completedTodoItems = todo_item => {
-    if (todo_item.completed === true) return todo_item;
+  deleteCompleted = value => {
+    this.props.deleteCompleted();
   };
 
   filterTodos = () => {
@@ -45,17 +45,17 @@ class TodoItems extends Component {
       var todo_items = this.props.todos;
       return todo_items;
     } else if (this.state.active_buttons === "Active") {
-      var todo_items = this.props.todos;
-      for (let i = 0; i < todo_items.length; i++) {
-        if (todo_items[i].completed == true) todo_items.splice(i, 1);
-      }
-      return todo_items;
+      let todo_boxes = [];
+      this.props.todos.forEach(element => {
+        if (element.completed === false) todo_boxes.push(element);
+      });
+      return todo_boxes;
     } else if (this.state.active_buttons === "completed") {
-      var todo_items = this.props.todos;
-      for (let i = 0; i < todo_items.length; i++) {
-        if (todo_items[i].completed == false) todo_items.splice(i, 1);
-      }
-      return todo_items;
+      let todo_boxes = [];
+      this.props.todos.forEach(element => {
+        if (element.completed === true) todo_boxes.push(element);
+      });
+      return todo_boxes;
     }
   };
 
@@ -64,6 +64,7 @@ class TodoItems extends Component {
     todo_items.forEach(element => {
       todo_boxes.push(
         <TodoItem
+          key={element.id}
           value={element.id}
           onChecked={this.props.onChecked}
           onUpdateTodo={this.onUpdateTodo}
@@ -71,6 +72,7 @@ class TodoItems extends Component {
           text={element.text}
           id={element.id}
           deleteTodo={this.props.deleteTodo}
+          check={element.completed === true ? true : false}
         />
       );
     });
@@ -81,12 +83,18 @@ class TodoItems extends Component {
     return (
       <div>
         <div>{this.displayTodos(this.filterTodos())}</div>
-        <FilterButtons
-          displayAll={this.displayAll}
-          activeTodos={this.activeTodos}
-          completedTodos={this.completedTodos}
-          deleteCompleted={this.deleteCompleted}
-        />
+        {this.props.todos.length > 0 ? (
+          <FilterButtons
+            displayAll={this.displayAll}
+            activeTodos={this.activeTodos}
+            completedTodos={this.completedTodos}
+            deleteCompleted={this.deleteCompleted}
+            clear_button={this.props.clear_button}
+            remaining_items={this.props.remaining_items}
+          />
+        ) : (
+          ""
+        )}
       </div>
     );
   }

@@ -66,15 +66,48 @@ class TodoList extends Component {
     }
   };
 
+  deleteCompleted = () => {
+    let todos = this.state.todo_items;
+    let todo_boxes = [];
+    todos.forEach(element => {
+      if (element.completed === false) todo_boxes.push(element);
+    });
+    this.setState({
+      todo_items: todo_boxes
+    });
+  };
+
+  completedList = todo_item => {
+    return todo_item.completed;
+  };
+
+  clearCompletedButton = () => {
+    let clear_button = this.state.todo_items.filter(this.completedList);
+    if (clear_button.length > 0) return true;
+    return false;
+  };
+
+  remainingItems = () => {
+    let remaining_items = this.state.todo_items.filter(todo_item => {
+      return !todo_item.completed;
+    });
+    return remaining_items.length;
+  };
+
   render() {
+    let clear_button = this.clearCompletedButton();
+    let remaining_items = this.remainingItems();
     return (
       <div>
-        <TodoTextBox onSaveTodo={this.createTodoObject} />
+        <TodoTextBox onSaveTodo={this.createTodoObject} todoText="" />
         <TodoItems
           todos={this.state.todo_items}
           onChecked={this.handleCheck}
           onUpdateTodo={this.onUpdateTodo}
           deleteTodo={this.deleteTodo}
+          deleteCompleted={this.deleteCompleted}
+          clear_button={clear_button}
+          remaining_items={remaining_items}
         />
       </div>
     );
