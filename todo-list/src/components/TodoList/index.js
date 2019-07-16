@@ -7,20 +7,18 @@ class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todo_items: [],
-      counter: 1
+      todo_items: []
     };
   }
 
   createTodoObject = todoText => {
     const todo = {
-      id: this.state.counter,
+      id: Math.random(),
       text: todoText,
       completed: false
     };
     this.setState({
-      todo_items: this.state.todo_items.concat(todo),
-      counter: this.state.counter + 1
+      todo_items: this.state.todo_items.concat(todo)
     });
   };
 
