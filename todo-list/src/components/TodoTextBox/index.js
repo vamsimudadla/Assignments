@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./styles.css";
 class TodoTextBox extends Component {
   constructor(props) {
     super(props);
@@ -28,8 +28,9 @@ class TodoTextBox extends Component {
 
   render() {
     return (
-      <div>
+      <div className="todo-block">
         <input
+          className={this.props.todo_text_box}
           type="text"
           value={this.state.todoText}
           onKeyDown={this.saveTodo}

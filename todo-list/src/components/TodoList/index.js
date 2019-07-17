@@ -97,7 +97,11 @@ class TodoList extends Component {
     let remaining_items = this.remainingItems();
     return (
       <div>
-        <TodoTextBox onSaveTodo={this.createTodoObject} todoText="" />
+        <TodoTextBox
+          onSaveTodo={this.createTodoObject}
+          todoText=""
+          todo_text_box="todo-text-box"
+        />
         <TodoItems
           todos={this.state.todo_items}
           onChecked={this.handleCheck}

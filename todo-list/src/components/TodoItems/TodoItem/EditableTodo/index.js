@@ -25,7 +25,11 @@ class EditableTodo extends Component {
     let completed = this.props.completed;
     if (this.state.edit && !completed) {
       return (
-        <TodoTextBox onSaveTodo={this.updateTodo} todoText={this.props.text} />
+        <TodoTextBox
+          onSaveTodo={this.updateTodo}
+          todoText={this.props.text}
+          todo_text_box="editable-text-box"
+        />
       );
     } else {
       const normal_todo = (
@@ -41,7 +45,9 @@ class EditableTodo extends Component {
   };
 
   render() {
-    return <div>{this.displayEditableTodo()} </div>;
+    return (
+      <div className={this.props.className}>{this.displayEditableTodo()} </div>
+    );
   }
 }
 export default EditableTodo;

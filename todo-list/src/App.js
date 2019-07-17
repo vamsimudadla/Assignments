@@ -5,7 +5,10 @@ import TodoList from "./components/TodoList";
 function App() {
   return (
     <div className="App">
-      <TodoList />
+      <div className="background-todo">todos</div>
+      <div className="components">
+        <TodoList />
+      </div>
     </div>
   );
 }

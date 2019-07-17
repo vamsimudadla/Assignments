@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./styles.css";
 class FilterButtons extends Component {
   displayAll = e => {
     this.props.displayAll(e.target.value);
@@ -19,15 +19,32 @@ class FilterButtons extends Component {
 
   render() {
     return (
-      <div>
-        <span>{this.props.remaining_items} items left</span>
-        <button type="button" value="All" onClick={this.displayAll}>
+      <div className="button-block">
+        <span className="remaining-todos-count">
+          {this.props.remaining_items} items left
+        </span>
+        <button
+          type="button"
+          value="All"
+          onClick={this.displayAll}
+          className="all-button"
+        >
           All
         </button>
-        <button type="button" value="Active" onClick={this.activeTodos}>
+        <button
+          type="button"
+          value="Active"
+          onClick={this.activeTodos}
+          className="active-button"
+        >
           Active
         </button>
-        <button type="button" value="completed" onClick={this.completedTodos}>
+        <button
+          type="button"
+          value="completed"
+          onClick={this.completedTodos}
+          className="completed-button"
+        >
           completed
         </button>
         {this.props.clear_button ? (
@@ -35,6 +52,7 @@ class FilterButtons extends Component {
             type="button"
             value="clear completed"
             onClick={this.deleteCompleted}
+            className="clear-completed-button"
           >
             clear completed
           </button>

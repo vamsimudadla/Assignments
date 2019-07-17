@@ -24,20 +24,24 @@ class TodoItem extends Component {
   render() {
     const new_todo = (
       <div className="todo-item" onDoubleClick={this.handleDoubleClick}>
-        <div className="todo-styles">
+        <div className="todo-styles todo-block round">
           <input
+            id="checkbox"
             type="checkbox"
             value={this.props.value}
             onChange={this.setTodoCompleted}
             checked={this.props.check}
           />
+          <label for="checkbox" />
           <EditableTodo
+            className="editable-style"
             completed={this.props.completed}
             text={this.props.text}
             id={this.props.id}
             onUpdateTodo={this.onUpdateTodo}
           />
           <img
+            className="cross-image"
             src="/assets/cross-mark.png"
             className="cross-image"
             alt="none"

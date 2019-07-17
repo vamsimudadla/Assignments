@@ -1,0 +1,38 @@
+.todo-text-box {
+  display: flex;
+  flex: 1;
+  font-size: 24px;
+  border-color: white;
+  border-width: 0ch;
+  margin-left: 50px;
+}
+
+.todo-text-box:focus {
+  outline: none;
+  font-size: 24px;
+}
+
+.todo-block {
+  height: 50px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
+  display: flex;
+  flex: 1;
+}
+
+::-webkit-input-placeholder {
+  color: #4d4d4d;
+  font-size: 24px;
+}
+
+.editable-text-box {
+  display: flex;
+  flex: 1;
+  font-size: 24px;
+}
+
+.editable-text-box:focus {
+  outline: none;
+  font-size: 24px;
+}
