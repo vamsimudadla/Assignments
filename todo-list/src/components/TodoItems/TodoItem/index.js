@@ -7,10 +7,7 @@ class TodoItem extends Component {
   }
 
   setTodoCompleted = e => {
-    this.props.onChecked(e.target.value);
-    this.setState({
-      check: true
-    });
+    this.props.onChecked(this.props.id);
   };
 
   onUpdateTodo = (todoText, id) => {
@@ -24,15 +21,21 @@ class TodoItem extends Component {
   render() {
     const new_todo = (
       <div className="todo-item" onDoubleClick={this.handleDoubleClick}>
-        <div className="todo-styles todo-block round">
-          <input
-            id="checkbox"
-            type="checkbox"
-            value={this.props.value}
-            onChange={this.setTodoCompleted}
-            checked={this.props.check}
-          />
-          <label for="checkbox" />
+        <div className="todo-styles todo-block">
+          {this.props.check ? (
+            <img
+              className="checkbox"
+              src="/assets/checked.png"
+              onClick={this.setTodoCompleted}
+            />
+          ) : (
+            <img
+              className="checkbox"
+              src="/assets/unchecked-icon.png"
+              value={this.props.value}
+              onClick={this.setTodoCompleted}
+            />
+          )}
           <EditableTodo
             className="editable-style"
             completed={this.props.completed}
